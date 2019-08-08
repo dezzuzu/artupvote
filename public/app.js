@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", event => {
   }
   
    function updateBookCover1Points(userSession) {
-    document.getElementById('crypto').style.display = 'block';
+    document.getElementById('crypto').style.display = 'flex';
     document.getElementById('deleteExpenses').style.display = 'flex';
     let options = {
       decrypt: false
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", event => {
   }
   
     function updateBookCover2Points(userSession) {
-    document.getElementById('crypto').style.display = 'block';
+    document.getElementById('crypto').style.display = 'flex';
     document.getElementById('deleteExpenses').style.display = 'flex';
     let options = {
       decrypt: false
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", event => {
   }
   
      function updateBookCover3Points(userSession) {
-    document.getElementById('crypto').style.display = 'block';
+    document.getElementById('crypto').style.display = 'flex';
     document.getElementById('deleteExpenses').style.display = 'flex';
     let options = {
       decrypt: false
