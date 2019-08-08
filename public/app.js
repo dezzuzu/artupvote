@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", event => {
 
     userSession.getFile("/bookcover1.json", options)
     .then((fileContents) => {
-        var expenses =  JSON.parse(fileContents || 0);
+        var points =  JSON.parse(fileContents || 0);
+       document.getElementById('book1points').innerHTML = points;
         console.log('fileContents of listExpense', fileContents);
-        console.log('expenses in listExpense', expenses);
+        console.log('points in listExpense', points);
     });
   }
 
