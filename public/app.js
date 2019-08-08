@@ -213,6 +213,8 @@ document.addEventListener("DOMContentLoaded", event => {
     const profile = userSession.loadUserData().profile;
     showProfile(profile);
     listExpense(userSession);
+    updateBookCover2Points(userSession);
+    updateBookCover3Points(userSession);
   } else if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
       window.location = window.location.origin
