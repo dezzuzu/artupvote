@@ -17,6 +17,16 @@ document.addEventListener("DOMContentLoaded", event => {
     event.preventDefault()
     saveExpense(userSession);
   })
+  
+  document.getElementById('upvote-book-2').addEventListener('click', event => {
+    event.preventDefault()
+    upvotebookcover2(userSession);
+  })
+  
+    document.getElementById('upvote-book-3').addEventListener('click', event => {
+    event.preventDefault()
+    upvotebookcover3(userSession);
+  })
 
   function showProfile (profile) {
     let person = new blockstack.Person(profile);
