@@ -33,50 +33,28 @@ document.addEventListener("DOMContentLoaded", event => {
       decrypt: false
     }
 
-    userSession.getFile("/expense5.json", options)
+    userSession.getFile("/bookcover1.json", options)
     .then((fileContents) => {
-        var expenses =  JSON.parse(fileContents || '[]');
+        var expenses =  JSON.parse(fileContents || 0);
         console.log('fileContents of listExpense', fileContents);
         console.log('expenses in listExpense', expenses);
-        let rows = '';
-        if (expenses.length > 0) {
-          expenses.forEach(item => {
-            rows += '<tr><td>' + item.item + '</td><td>' + item.expenseAmount + '</td><td>' + item.category + '</td></tr>';
-          });
-          document.getElementById('expense-body').innerHTML = rows;   
-          document.getElementById('expenses').style.display = 'flex';       
-        } else {
-          document.getElementById('expenses').style.display = 'none'
-        }
-
-});
+    });
   }
 
   function saveExpense(userSession) {
     let options = {
       encrypt: false
     }
-    userSession.getFile("/expense5.json", {
+    userSession.getFile("/bookcover1.json", {
       decrypt: false
     })
     .then((fileContents) => {
         // get the contents of the file /expenses.txt
-        var expenses = JSON.parse(fileContents || '[]');
-        console.log('old expenses in saveExpense', expenses);
-        if (expenses.length > 0) {
-          expenses = expenses;
-        } else { expenses = [] }
-
-        const item = document.getElementById('expense-item').value;
-        const category = document.getElementById('expense-category').value;
-        const expenseAmount = document.getElementById('expense-amount').value;
-        const expense = [...expenses, { 
-                item: item,
-                category: category,
-                expenseAmount: '$' + expenseAmount,
-              }];
-        console.log('expense to be saved', expense);
-        userSession.putFile("/expense5.json", JSON.stringify(expense), options)
+        var bookcover1 = JSON.parse(fileContents || 0);
+        console.log('bookcover1: ', bookcover1);
+      
+        bookcover1 += 1;
+        userSession.putFile("/bookcover1.json", JSON.stringify(bookcover1), options)
         .then(() => {
             listExpense(userSession);
         })
