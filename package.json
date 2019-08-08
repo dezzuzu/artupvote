@@ -1,7 +1,7 @@
 {
-  "name": "hello-blockstack",
+  "name": "rock-the-vote",
   "version": "0.0.0",
-  "description": "A simple Blockstack app",
+  "description": "Upvote the best design",
   "main": "index.js",
   "scripts": {
     "browserify": "browserify requires.js -o public/bundle.js",
