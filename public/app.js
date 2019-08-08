@@ -41,8 +41,74 @@ document.addEventListener("DOMContentLoaded", event => {
         console.log('points in listExpense', points);
     });
   }
+  
+   function listExpense(userSession) {
+    document.getElementById('crypto').style.display = 'block';
+    document.getElementById('deleteExpenses').style.display = 'flex';
+    let options = {
+      decrypt: false
+    }
 
-  function saveExpense(userSession) {
+    userSession.getFile("/bookcover1.json", options)
+    .then((fileContents) => {
+        var points =  JSON.parse(fileContents || 0);
+       document.getElementById('book1points').innerHTML = points;
+        console.log('fileContents of listExpense', fileContents);
+        console.log('points in listExpense', points);
+    });
+  }
+  
+   function updateBookCover1Points(userSession) {
+    document.getElementById('crypto').style.display = 'block';
+    document.getElementById('deleteExpenses').style.display = 'flex';
+    let options = {
+      decrypt: false
+    }
+
+    userSession.getFile("/bookcover1.json", options)
+    .then((fileContents) => {
+        var points =  JSON.parse(fileContents || 0);
+       document.getElementById('book1points').innerHTML = points;
+        console.log('fileContents of listExpense', fileContents);
+        console.log('points in listExpense', points);
+    });
+  }
+  
+    function updateBookCover2Points(userSession) {
+    document.getElementById('crypto').style.display = 'block';
+    document.getElementById('deleteExpenses').style.display = 'flex';
+    let options = {
+      decrypt: false
+    }
+
+    userSession.getFile("/bookcover2.json", options)
+    .then((fileContents) => {
+        var points =  JSON.parse(fileContents || 0);
+       document.getElementById('book2points').innerHTML = points;
+        console.log('fileContents of listExpense', fileContents);
+        console.log('points in listExpense', points);
+    });
+  }
+  
+     function updateBookCover3Points(userSession) {
+    document.getElementById('crypto').style.display = 'block';
+    document.getElementById('deleteExpenses').style.display = 'flex';
+    let options = {
+      decrypt: false
+    }
+
+    userSession.getFile("/bookcover3.json", options)
+    .then((fileContents) => {
+        var points =  JSON.parse(fileContents || 0);
+       document.getElementById('book3points').innerHTML = points;
+        console.log('fileContents of listExpense', fileContents);
+        console.log('points in listExpense', points);
+    });
+  }
+  
+ 
+
+  function upvotebookcover1(userSession) {
     let options = {
       encrypt: false
     }
@@ -57,10 +123,50 @@ document.addEventListener("DOMContentLoaded", event => {
         bookcover1 += 1;
         userSession.putFile("/bookcover1.json", JSON.stringify(bookcover1), options)
         .then(() => {
-            listExpense(userSession);
+            updateBookCover1Points(userSession);
         })
     });
-
+  }
+  
+ 
+  function upvotebookcover2(userSession) {
+    let options = {
+      encrypt: false
+    }
+    userSession.getFile("/bookcover2.json", {
+      decrypt: false
+    })
+    .then((fileContents) => {
+        // get the contents of the file /expenses.txt
+        var bookcover2 = JSON.parse(fileContents || 0);
+        console.log('bookcover2: ', bookcover2);
+      
+        bookcover2 += 1;
+        userSession.putFile("/bookcover2.json", JSON.stringify(bookcover2), options)
+        .then(() => {
+            updateBookCover2Points(userSession);
+        })
+    });
+  }
+  
+   function upvotebookcover3(userSession) {
+    let options = {
+      encrypt: false
+    }
+    userSession.getFile("/bookcover3.json", {
+      decrypt: false
+    })
+    .then((fileContents) => {
+        // get the contents of the file /expenses.txt
+        var bookcover3 = JSON.parse(fileContents || 0);
+        console.log('bookcover3: ', bookcover3);
+      
+        bookcover3 += 1;
+        userSession.putFile("/bookcover3.json", JSON.stringify(bookcover3), options)
+        .then(() => {
+            updateBookCover3Points(userSession);
+        })
+    });
   }
 
   function deleteList(userSession) {
