@@ -52,22 +52,6 @@ document.addEventListener("DOMContentLoaded", event => {
     });
   }
   
-   function listExpense(userSession) {
-    document.getElementById('crypto').style.display = 'block';
-    document.getElementById('deleteExpenses').style.display = 'flex';
-    let options = {
-      decrypt: false
-    }
-
-    userSession.getFile("/bookcover1.json", options)
-    .then((fileContents) => {
-        var points =  JSON.parse(fileContents || 0);
-       document.getElementById('book1points').innerHTML = points;
-        console.log('fileContents of listExpense', fileContents);
-        console.log('points in listExpense', points);
-    });
-  }
-  
    function updateBookCover1Points(userSession) {
     document.getElementById('crypto').style.display = 'block';
     document.getElementById('deleteExpenses').style.display = 'flex';
