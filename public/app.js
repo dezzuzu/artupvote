@@ -18,11 +18,6 @@ document.addEventListener("DOMContentLoaded", event => {
     saveExpense(userSession);
   })
 
-  document.getElementById('delete-button').addEventListener('click', event => {
-    event.preventDefault()
-    deleteList(userSession);
-  })
-
   function showProfile (profile) {
     let person = new blockstack.Person(profile);
 
